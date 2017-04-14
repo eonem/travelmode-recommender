@@ -4,18 +4,18 @@
                              http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.spring.cloud.samples</groupId>
-    <artifactId>fortune-teller</artifactId>
+    <groupId>travelmode.recommender</groupId>
+    <artifactId>travel-mode-recommender</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Fortune Teller Cloud-Native Application</name>
+    <name>Travel Mode Recommender Cloud-Native Application</name>
 
     <modules>
-        <module>fortune-teller-config-server</module>
-        <module>fortune-teller-eureka</module>
-        <module>fortune-teller-fortune-service</module>
-        <module>fortune-teller-hystrix-dashboard</module>
-        <module>fortune-teller-ui</module>
+        <module>travel-mode-recommender-config-server</module>
+        <module>travel-mode-recommender-eureka</module>
+        <module>travel-mode-recommender-service</module>
+        <module>travel-mode-recommender-hystrix-dashboard</module>
+        <module>travel-mode-recommender-ui</module>
     </modules>
 
     <parent>
@@ -59,16 +59,16 @@
     </dependencies>
 
     <dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>Brixton.SR5</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Brixton.SR5</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>

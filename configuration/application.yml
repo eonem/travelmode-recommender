@@ -1,6 +1,3 @@
-fortune:
-  fallbackFortune: Today is your lucky day!
-
 travelmode:
   googleApiKey: AIzaSyAQfy94LRh_YxjBjHxSetaSwU7QoEH4GNM
   fallbackResponse: Please try again later.

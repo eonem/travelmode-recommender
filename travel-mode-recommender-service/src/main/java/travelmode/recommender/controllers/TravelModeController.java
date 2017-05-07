@@ -18,6 +18,7 @@ public class TravelModeController {
     public TravelMode getRecommendedTravelMode(@RequestParam String from,
                                                @RequestParam String to,
                                                @RequestParam String departure) {
-        return travelModeService.getRecommendedTravelMode(to, from, departure);
+        
+        return travelModeService.getRecommendedTravelMode(from, to, departure);
     }
 }

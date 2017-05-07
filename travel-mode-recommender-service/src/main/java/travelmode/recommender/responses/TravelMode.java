@@ -1,15 +1,17 @@
 package travelmode.recommender.responses;
 
 
+import travelmode.recommender.enums.TravelModeEnum;
+
 public class TravelMode {
 
-    private String duration;
+    private int duration;
 
-    private String mode;
+    private TravelModeEnum mode;
 
     private String error;
 
-    public TravelMode(String duration, String mode) {
+    public TravelMode(int duration, TravelModeEnum mode) {
         this.duration = duration;
         this.mode = mode;
     }
@@ -18,19 +20,19 @@ public class TravelMode {
         this.error = error;
     }
 
-    public String getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(String id) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 
-    public String getMode() {
+    public TravelModeEnum getMode() {
         return mode;
     }
 
-    public void setMode(String text) {
+    public void setMode(TravelModeEnum mode) {
         this.mode = mode;
     }
 

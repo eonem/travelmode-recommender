@@ -33,8 +33,6 @@ public class TravelModeServiceImpl implements TravelModeService {
     @Autowired
     RestTemplate restTemplate;
 
-    private TravelMode ERROR_RESPONSE;
-
     private Logger logger = LoggerFactory.getLogger(TravelModeServiceImpl.class);
 
     @PostConstruct
@@ -42,8 +40,6 @@ public class TravelModeServiceImpl implements TravelModeService {
         if (Strings.isNullOrEmpty(travelModeProperties.getGoogleApiKey())) {
             throw new ServiceConfigurationException("Google API key has not been set.");
         }
-
-        ERROR_RESPONSE = new TravelMode(travelModeProperties.getFallbackResponse());
     }
 
     //@HystrixCommand(fallbackMethod = "tryAgainLater")
@@ -119,6 +115,6 @@ public class TravelModeServiceImpl implements TravelModeService {
     }
 
     private TravelMode tryAgainLater(String from, String to, String departureTimestamp) {
-        return ERROR_RESPONSE;
+        throw new ServiceConfigurationException("Try again later.");
     }
 }

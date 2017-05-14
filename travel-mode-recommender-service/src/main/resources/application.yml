@@ -1,12 +1,10 @@
 spring:
-  jpa:
-    database: HSQL
-    hibernate:
-      ddl-auto: create-drop
-
-ribbon:
-  IsSecure: false
+  port: 8080
 
 security:
   basic:
+    enabled: false
+
+eureka:
+  client:
     enabled: false

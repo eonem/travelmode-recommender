@@ -4,6 +4,7 @@ server:
 eureka:
   client:
     registryFetchIntervalSeconds: 5
+    enabled: false
 
 ribbon:
   IsSecure: false

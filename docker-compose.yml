@@ -1,0 +1,33 @@
+version: '2'
+services:
+    config-server:
+        container_name: config-server
+        build:
+            context: ./travel-mode-recommender-config-server/
+        image: config-server:latest
+        restart: always
+        expose:
+            - 8888
+        ports:
+            - 8888:8888
+        networks:
+            - spring-cloud-network
+    tmr-api:
+        container_name: tmr-api
+        build:
+            context: ./travel-mode-recommender-service/
+        image: tmr-api:latest
+        restart: always
+        expose:
+            - 8080
+        ports:
+            - 8080:8080
+        networks:
+            - spring-cloud-network
+        links:
+            - config-server:config-server
+        depends_on:
+            - config-server
+networks:
+    spring-cloud-network:
+        driver: bridge

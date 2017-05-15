@@ -1,4 +1,5 @@
 version: '2'
+
 services:
     config-server:
         container_name: config-server
@@ -7,27 +8,53 @@ services:
         image: config-server:latest
         restart: always
         expose:
-            - 8888
+          - 8888
         ports:
-            - 8888:8888
+          - 8888:8888
         networks:
-            - spring-cloud-network
+          - spring-cloud-network
     tmr-api:
         container_name: tmr-api
         build:
-            context: ./travel-mode-recommender-service/
+          context: ./travel-mode-recommender-service/
         image: tmr-api:latest
         restart: always
         expose:
-            - 8080
+          - 8080
         ports:
-            - 8080:8080
+          - 8080:8080
         networks:
-            - spring-cloud-network
+          - spring-cloud-network
         links:
-            - config-server:config-server
+          - config-server:config-server
         depends_on:
-            - config-server
+          - config-server
+    db:
+        container_name: mysql
+        build:
+          context: ./data-store/
+        image: mysql:latest
+        restart: always
+        expose:
+          - 3306
+        ports:
+          - 3306:3306
+        restart: always
+        networks:
+          - spring-cloud-network
+        links:
+          - tmr-api:tmr-api
+        environment:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: tmr
+          MYSQL_USER: user
+          MYSQL_PASSWORD: root
+        volumes:
+          - mysql_data:/var/lib/mysql
+
 networks:
-    spring-cloud-network:
-        driver: bridge
+  spring-cloud-network:
+    driver: bridge
+
+volumes:
+  mysql_data:

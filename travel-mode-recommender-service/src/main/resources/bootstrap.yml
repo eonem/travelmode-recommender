@@ -3,4 +3,5 @@ spring:
     name: travel-mode-recommender-service
   cloud:
     config:
-      uri: http://172.18.0.2:8888
+      # uri: http://172.17.0.2:8888 # if running via docker
+      uri: http://172.18.0.2:8888   # if running via docker-compose

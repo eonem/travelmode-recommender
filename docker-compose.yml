@@ -27,9 +27,11 @@ services:
           - spring-cloud-network
         links:
           - config-server:config-server
+          - mysql:mysql
         depends_on:
           - config-server
-    db:
+          - mysql
+    mysql:
         container_name: mysql
         build:
           context: ./data-store/
@@ -42,8 +44,8 @@ services:
         restart: always
         networks:
           - spring-cloud-network
-        links:
-          - tmr-api:tmr-api
+        depends_on:
+          - config-server
         environment:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: tmr

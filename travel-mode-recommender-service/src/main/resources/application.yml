@@ -1,5 +1,15 @@
 spring:
   port: 8080
+  datasource:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost/tmr
+      username: user
+      password: root
+  jpa:
+      show-sql: true
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        ddl-auto: validate
 
 security:
   basic:

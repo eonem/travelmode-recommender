@@ -15,6 +15,8 @@ public class TravelModeProperties {
 
     private String trafficModel;
 
+    private String travelPollDateRangeInMins;
+
     public String getGoogleApiKey() {
         return googleApiKey;
     }
@@ -45,6 +47,14 @@ public class TravelModeProperties {
 
     public void setTrafficModel(String trafficModel) {
         this.trafficModel = trafficModel;
+    }
+
+    public String getTravelPollDateRangeInMins() {
+        return travelPollDateRangeInMins;
+    }
+
+    public void setTravelPollDateRangeInMins(String travelPollDateRangeInMins) {
+        this.travelPollDateRangeInMins = travelPollDateRangeInMins;
     }
 
 }

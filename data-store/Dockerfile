@@ -24,5 +24,5 @@ RUN \
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-EXPOSE 3306 33060
+EXPOSE 3306 3306
 CMD ["mysqld"]
